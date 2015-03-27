@@ -6,7 +6,8 @@ var PREFS =
     'user_pref("browser.shell.checkDefaultBrowser", false);\n' +
     'user_pref("browser.bookmarks.restore_default_bookmarks", false);\n' +
     'user_pref("dom.disable_open_during_load", false);\n' +
-    'user_pref("dom.max_script_run_time", 0);\n';
+    'user_pref("dom.max_script_run_time", 0);\n' +
+    'user_pref("browser.popups.showPopupBlocker", false);\n';
 
 
 // Return location of firefox.exe file for a given Firefox directory
@@ -52,7 +53,7 @@ var FirefoxBrowser = function(id, baseBrowserDecorator, args, logger) {
     var command = this._getCommand();
 
     fs.writeFileSync(self._tempDir + '/prefs.js', this._getPrefs(args.prefs));
-    self._execCommand(command, [url, '-profile', self._tempDir, '-no-remote']);
+    var proc = spawn(command, [url, '-profile', self._tempDir, '-no-remote']);
   };
 };
 

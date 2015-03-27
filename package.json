@@ -1,5 +1,5 @@
 {
-  "name": "karma-firefox-launcher",
+  "name": "karma-firefox-extra-launcher",
   "version": "0.1.4",
   "description": "A Karma plugin. Launcher for Firefox.",
   "main": "index.js",
