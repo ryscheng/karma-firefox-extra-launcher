@@ -54,6 +54,8 @@ var FirefoxBrowser = function(id, baseBrowserDecorator, args, logger) {
 
     fs.writeFileSync(self._tempDir + '/prefs.js', this._getPrefs(args.prefs));
     var proc = spawn(command, [url, '-profile', self._tempDir, '-no-remote']);
+    proc.stdout.on("data", function(data){});
+    proc.stderr.on("data", function(data){});
   };
 };
 
